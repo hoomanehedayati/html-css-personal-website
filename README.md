@@ -37,6 +37,21 @@ A modern, responsive personal portfolio website built with HTML, CSS, and JavaSc
    - Update skills and contact information
    - Modify colors in `styles.css` if desired
 
+## Deployment to GitHub Pages
+
+This website is ready to be deployed on GitHub Pages:
+
+1. Go to your repository on GitHub
+2. Navigate to **Settings** → **Pages**
+3. Under **Source**, select:
+   - **Branch**: `main`
+   - **Folder**: `/ (root)`
+4. Click **Save**
+5. Wait 5-10 minutes for GitHub to build your site
+6. Your site will be live at: `https://[your-username].github.io/html-css-personal-website`
+
+**Note**: The `.nojekyll` file is included to ensure GitHub Pages serves the site correctly without Jekyll processing.
+
 ## Customization
 
 ### Changing Colors
