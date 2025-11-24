@@ -44,6 +44,30 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Project Filtering
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card[data-category]');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filter = button.getAttribute('data-filter');
+        
+        projectCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                card.classList.remove('hidden');
+                card.style.animation = 'fadeInUp 0.5s ease';
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    });
+});
+
 // Enhanced Intersection Observer for animations
 const observerOptions = {
     threshold: 0.1,
@@ -61,7 +85,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe elements for animation
-document.querySelectorAll('.project-card, .skill-item, .stat-item, .contact-item').forEach(el => {
+document.querySelectorAll('.project-card, .skill-item, .stat-item, .contact-item, .timeline-item, .experience-card, .achievement-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -69,8 +93,8 @@ document.querySelectorAll('.project-card, .skill-item, .stat-item, .contact-item
 });
 
 // Stagger animation for project cards
-const projectCards = document.querySelectorAll('.project-card');
-projectCards.forEach((card, index) => {
+const projectCardsArray = Array.from(projectCards);
+projectCardsArray.forEach((card, index) => {
     card.style.transitionDelay = `${index * 0.1}s`;
 });
 
@@ -78,6 +102,12 @@ projectCards.forEach((card, index) => {
 const skillItems = document.querySelectorAll('.skill-item');
 skillItems.forEach((item, index) => {
     item.style.transitionDelay = `${index * 0.05}s`;
+});
+
+// Stagger animation for timeline items
+const timelineItems = document.querySelectorAll('.timeline-item');
+timelineItems.forEach((item, index) => {
+    item.style.transitionDelay = `${index * 0.2}s`;
 });
 
 // Add parallax effect to hero section
@@ -88,20 +118,6 @@ window.addEventListener('scroll', () => {
         hero.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
 });
-
-// Add typing effect to hero title (optional enhancement)
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.textContent = '';
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    type();
-}
 
 // Counter animation for stats
 function animateCounter(element, target, duration = 2000) {
@@ -160,7 +176,14 @@ document.querySelectorAll('.section-title, .section-subtitle').forEach(el => {
     revealObserver.observe(el);
 });
 
-// Add CSS for revealed state
+// CV Download functionality
+document.getElementById('downloadCV')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    // This will be implemented when CV PDF is created
+    alert('CV download will be available soon. Please contact me directly for a copy.');
+});
+
+// Add CSS for revealed state and animations
 const style = document.createElement('style');
 style.textContent = `
     .section-title, .section-subtitle {
@@ -181,6 +204,17 @@ style.textContent = `
     body {
         opacity: 0;
         transition: opacity 0.3s ease;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 `;
 document.head.appendChild(style);
