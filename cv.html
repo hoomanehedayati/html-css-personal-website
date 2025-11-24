@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hooman Hedayati - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            font-size: 11pt;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+            background: white;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #6366f1;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 28pt;
+            color: #6366f1;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .header .subtitle {
+            font-size: 14pt;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 10pt;
+            color: #555;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 16pt;
+            color: #6366f1;
+            border-bottom: 2px solid #6366f1;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Education & Experience Items */
+        .item {
+            margin-bottom: 15px;
+            page-break-inside: avoid;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 5px;
+        }
+
+        .item-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .item-date {
+            font-size: 10pt;
+            color: #666;
+            font-style: italic;
+        }
+
+        .item-institution {
+            font-size: 11pt;
+            color: #6366f1;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .item-location {
+            font-size: 10pt;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .item-details {
+            font-size: 10pt;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .item-details ul {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        .item-details li {
+            margin-bottom: 4px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .skill-category {
+            margin-bottom: 12px;
+        }
+
+        .skill-category-title {
+            font-weight: bold;
+            color: #6366f1;
+            font-size: 11pt;
+            margin-bottom: 5px;
+        }
+
+        .skill-items {
+            font-size: 10pt;
+            color: #555;
+        }
+
+        /* Projects List */
+        .project-item {
+            margin-bottom: 10px;
+            padding-left: 15px;
+            border-left: 3px solid #e5e7eb;
+            padding-left: 12px;
+        }
+
+        .project-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 11pt;
+        }
+
+        .project-description {
+            font-size: 10pt;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        /* Achievements */
+        .achievement-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .achievement-icon {
+            color: #6366f1;
+            font-weight: bold;
+        }
+
+        .achievement-text {
+            font-size: 10pt;
+            color: #555;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .cv-container {
+                padding: 15mm;
+                max-width: 100%;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .item {
+                page-break-inside: avoid;
+            }
+
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+        }
+
+        /* Two Column Layout for Skills */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .gpa-badge {
+            display: inline-block;
+            background: #6366f1;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 9pt;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .rank-badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 9pt;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Seyed Alireza Hedayati</h1>
+            <div class="subtitle">Full-Stack Developer & Data Analyst</div>
+            <div class="contact-info">
+                <span>📍 Tehran, Iran</span>
+                <span>✉️ hooma84hedayati@gmail.com</span>
+                <span>📞 +98 902 640 6600</span>
+                <span>🔗 github.com/hoomanehedayati</span>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <div class="section-title">Education</div>
+            
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">B.Sc. Marine Engineering <span style="font-size: 10pt; font-weight: normal; color: #666;">(Not Completed)</span></div>
+                        <div class="item-institution">Amirkabir University of Technology (Tehran Polytechnic)</div>
+                        <div class="item-location">Tehran, Iran</div>
+                    </div>
+                    <div class="item-date">Oct 2023 - Present</div>
+                </div>
+                <div class="item-details">
+                    <ul>
+                        <li>Completed 4 semesters; currently enrolled</li>
+                        <li>Planning to pursue studies aligned with long-term academic interests</li>
+                        <li>Ranked among top engineering universities in Iran</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Diploma in Mathematics and Physics</div>
+                        <div class="item-institution">Shahed High School</div>
+                        <div class="item-location">Tehran, Iran</div>
+                    </div>
+                    <div class="item-date">Graduated June 2023</div>
+                </div>
+                <div class="item-details">
+                    <ul>
+                        <li><strong>GPA:</strong> 17.5 / 20 <span class="gpa-badge">Excellent</span></li>
+                        <li>Ranked <strong>Top 1000</strong> nationwide in the Iranian National University Entrance Exam (Konkur) <span class="rank-badge">Top 1000</span></li>
+                        <li>Participated in the Iranian National Computer Olympiad, progressed to <strong>Round 2 (National Level)</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">IELTS Academic</div>
+                        <div class="item-institution">English Proficiency Certification</div>
+                    </div>
+                    <div class="item-date">September 2025</div>
+                </div>
+                <div class="item-details">
+                    <strong>Overall Score: 7.5</strong> - Advanced English proficiency level
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="section">
+            <div class="section-title">Professional Experience</div>
+            
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Multimedia & Web Freelancer</div>
+                        <div class="item-institution">Self-Employed</div>
+                        <div class="item-location">Tehran, Iran</div>
+                    </div>
+                    <div class="item-date">Mar 2023 - Present</div>
+                </div>
+                <div class="item-details">
+                    <ul>
+                        <li>Designed and developed personal and client websites using modern web technologies</li>
+                        <li>Produced and edited photography and video content using Premiere Pro and Photoshop</li>
+                        <li>Utilized AI tools for creative content generation and workflow optimization</li>
+                        <li>Managed multiple client projects from conception to delivery</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Intern / Part-time</div>
+                        <div class="item-institution">Leejo (Chinese Lighting Components Company)</div>
+                        <div class="item-location">Tehran, Iran</div>
+                    </div>
+                    <div class="item-date">Apr 2025 - Aug 2025</div>
+                </div>
+                <div class="item-details">
+                    <ul>
+                        <li>Photography and videography for advertising and marketing content</li>
+                        <li>Administrative and digital project support</li>
+                        <li>Collaborated in an international team environment</li>
+                        <li>Assisted in marketing and content improvement initiatives</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="section">
+            <div class="section-title">Skills & Technologies</div>
+            <div class="two-column">
+                <div>
+                    <div class="skill-category">
+                        <div class="skill-category-title">Programming & Web Development</div>
+                        <div class="skill-items">
+                            • Python (Intermediate-Advanced)<br>
+                            • HTML/CSS (Advanced)<br>
+                            • JavaScript (Intermediate)<br>
+                            • React (Intermediate)<br>
+                            • Node.js (Intermediate)<br>
+                            • Swift (Beginner-Intermediate)<br>
+                            • Web3 & Blockchain (Self-Study)
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-category-title">Data & Analytics</div>
+                        <div class="skill-items">
+                            • Machine Learning<br>
+                            • Data Analysis (Pandas, NumPy)<br>
+                            • Data Visualization<br>
+                            • Statistical Analysis
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="skill-category">
+                        <div class="skill-category-title">Computer Science</div>
+                        <div class="skill-items">
+                            • Competitive Programming<br>
+                            • Algorithmic Problem-Solving<br>
+                            • Database Integration<br>
+                            • RESTful API Design
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-category-title">Creative & Multimedia</div>
+                        <div class="skill-items">
+                            • Photography (Documentary & Creative)<br>
+                            • Videography<br>
+                            • Video Editing (Premiere Pro)<br>
+                            • Photo Editing (Photoshop)<br>
+                            • AI Content Creation
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <div class="skill-category-title">Languages</div>
+                        <div class="skill-items">
+                            • Persian (Native)<br>
+                            • English (Advanced - IELTS 7.5)<br>
+                            • Spanish (Beginner)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="section">
+            <div class="section-title">Featured Projects</div>
+            
+            <div class="project-item">
+                <div class="project-title">E-commerce Mini Store</div>
+                <div class="project-description">Full-stack e-commerce application with Flask backend, SQLite database, shopping cart, and admin panel. Features RESTful API design and responsive UI.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Sales Analytics Dashboard</div>
+                <div class="project-description">Interactive sales dashboard with Chart.js visualizations, real-time statistics, and advanced filtering. Built with Flask backend and modern frontend.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Housing Price Predictor</div>
+                <div class="project-description">Machine learning model using Linear Regression and Decision Tree Regressor to predict housing prices. Includes model comparison and performance metrics.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Customer Segmentation (RFM Analysis)</div>
+                <div class="project-description">E-commerce customer segmentation using RFM (Recency, Frequency, Monetary) analysis with data visualization and segment categorization.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Password Generator</div>
+                <div class="project-description">Secure password generator with strength analysis and Shannon entropy calculation. Features customizable character sets and security assessment.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Automatic File Organizer</div>
+                <div class="project-description">Automatic file organizer that sorts files into categorized folders by extension. Includes logging, conflict resolution, and multiple file type support.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Portfolio Website & Interactive Todo App</div>
+                <div class="project-description">Responsive portfolio website and interactive todo application with local storage, filtering, and modern UI/UX design.</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Creative Projects</div>
+                <div class="project-description">YouTube video production, photography/documentary series, and video editing projects using Premiere Pro and Photoshop.</div>
+            </div>
+
+            <div style="margin-top: 10px; font-size: 10pt; color: #666;">
+                <strong>Portfolio:</strong> github.com/hoomanehedayati | <strong>8+ Projects</strong> available on GitHub
+            </div>
+        </div>
+
+        <!-- Achievements -->
+        <div class="section">
+            <div class="section-title">Achievements & Recognition</div>
+            
+            <div class="achievement-item">
+                <span class="achievement-icon">🏆</span>
+                <div class="achievement-text">
+                    <strong>Top 1000 Nationwide</strong> - Ranked in the top 1000 in the Iranian National University Entrance Exam (Konkur), 2023
+                </div>
+            </div>
+
+            <div class="achievement-item">
+                <span class="achievement-icon">🥇</span>
+                <div class="achievement-text">
+                    <strong>Computer Olympiad</strong> - Participated in the Iranian National Computer Olympiad, progressed to Round 2 (National Level), 2023
+                </div>
+            </div>
+
+            <div class="achievement-item">
+                <span class="achievement-icon">📜</span>
+                <div class="achievement-text">
+                    <strong>IELTS 7.5</strong> - IELTS Academic overall score of 7.5, demonstrating advanced English proficiency, September 2025
+                </div>
+            </div>
+
+            <div class="achievement-item">
+                <span class="achievement-icon">⭐</span>
+                <div class="achievement-text">
+                    <strong>High School Excellence</strong> - Graduated with GPA of 17.5/20 in Mathematics and Physics diploma, 2023
+                </div>
+            </div>
+        </div>
+
+        <!-- Interests -->
+        <div class="section">
+            <div class="section-title">Interests</div>
+            <div style="font-size: 10pt; color: #555;">
+                Web3, Blockchain Technology, Marketing, AI applications in creative workflows, Competitive Programming, Photography, Videography
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Print to PDF functionality
+        window.onload = function() {
+            // Auto-print dialog (optional - comment out if you don't want auto-print)
+            // window.print();
+        };
+    </script>
+</body>
+</html>
+
